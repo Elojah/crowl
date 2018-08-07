@@ -30,7 +30,7 @@ twitter:
 .PHONY: proto
 proto:
 	$(info $(M) running protocode…) @
-	protoc-gen-gogoslick --gofast_out=pkg/twitter proto/tweet.proto
+	$Q cd pkg/twitter && protoc --gogoslick_out=. tweet.proto
 
 # Dependencies
 # .PHONY: dep

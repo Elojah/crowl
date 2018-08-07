@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
+option go_package = "twitter";
 
 message Entities {
 	repeated string Hashtags = 1;
@@ -12,7 +12,7 @@ message User {
 }
 
 message Tweet {
-	google.protobuf.Timestamp CreatedAt = 1;
+	uint64 CreatedAt = 1;
 	string ID = 2;
 	string Text = 3;
 	User User = 4;
