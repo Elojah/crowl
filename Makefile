@@ -1,8 +1,8 @@
 PACKAGE   = crowl
 DATE     ?= $(shell date +%FT%T%z)
-VERSION  ?= $(shell echo "$(cat $(PWD)/.version)-$(git describe --tags --always)")
+VERSION  ?= $(shell echo $(shell cat $(PWD)/.version)-$(shell git describe --tags --always))
 
-GO        = go
+GO        = vgo
 GODOC     = godoc
 GOFMT     = gofmt
 GOLINT    = gometalinter
@@ -20,7 +20,7 @@ all: twitter
 # Executables
 twitter:
 	$(info $(M) building executable twitter…) @ ## Build program binary
-	$Q cd cmd/$(TWITTER) &&  $(GO) build \
+	$Q cd cmd/$(TWITTER) && $(GO) build \
 		-tags release \
 		-ldflags '-X $(PACKAGE)/cmd.Version=$(VERSION) -X $(PACKAGE)/cmd.BuildDate=$(DATE)' \
 		-o ../../bin/$(PACKAGE)_$(TWITTER)_$(VERSION)
