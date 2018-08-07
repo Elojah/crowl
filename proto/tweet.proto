@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+message Entities {
+	repeated string Hashtags = 1;
+}
+
+message User {
+	string ID = 1;
+	string ScreenName = 2;
+}
+
+message Tweet {
+	google.protobuf.Timestamp CreatedAt = 1;
+	string ID = 2;
+	string Text = 3;
+	User User = 4;
+	Entities Entities = 5;
+}
