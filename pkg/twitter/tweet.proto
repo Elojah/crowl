@@ -2,6 +2,8 @@ syntax = "proto3";
 
 option go_package = "twitter";
 
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
 message Entities {
 	repeated string Hashtags = 1;
 }
@@ -15,6 +17,6 @@ message Tweet {
 	uint64 CreatedAt = 1;
 	string ID = 2;
 	string Text = 3;
-	User User = 4;
-	Entities Entities = 5;
+	User User = 4 [(gogoproto.nullable) = false];
+	Entities Entities = 5 [(gogoproto.nullable) = false];
 }
