@@ -31,7 +31,7 @@ twitter:
 proto:
 	$(info $(M) running protocode…) @
 	$Q cd pkg/twitter &&\
-		protoc -I=. -I=$(GOPATH)/src -I=$(GOPATH)/src/github.com/gogo/protobuf/protobuf --gogoslick_out=. tweet.proto
+		protoc -I=. -I=$(GOPATH)/src --gogoslick_out=. tweet.proto
 
 # Dependencies
 # .PHONY: dep
