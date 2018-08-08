@@ -18,11 +18,14 @@ type Service interface {
 // NewService returns a new valid twitter service.
 func NewService() Service {
 	s := &service{}
-	http.Handle("twitter/user/follow", httptransport.NewServer(
-		followUser(s),
-		decode,
-		encode,
-	))
+	http.Handle(
+		"/twitter/user/follow",
+		httptransport.NewServer(
+			followUser(s),
+			decode,
+			encode,
+		),
+	)
 	return s
 }
 
